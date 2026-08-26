@@ -4,7 +4,7 @@ int tery = 1;
 char * videobuffer = (char*) VIDEOBUFFER;
 
 int clscr(){
-    for(int i=0;i<=0x7fff;i++) videobuffer[i] = 0;
+    for(int i=0;i < 4000;i++) videobuffer[i] = 0;
     terx = tery = 1;
     return 0;
 }

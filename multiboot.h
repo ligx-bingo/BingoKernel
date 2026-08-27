@@ -1,4 +1,5 @@
 #include <stdint.h>
+struct multiboot_mmap_entry;
 struct mbootinfo{
     uint32_t flags;
     uint32_t mem_lower;
@@ -9,7 +10,7 @@ struct mbootinfo{
     uint32_t mods_addr;
     uint64_t syms[2]; //相信不会用到
     uint32_t mmap_length;
-    uint32_t mmap_addr;
+    struct multiboot_mmap_entry* mmap_addr;
     uint32_t drives_length;
     uint32_t drives_addr;
     uint32_t config_table;
@@ -34,3 +35,12 @@ struct mbootinfo{
     uint8_t  framebuffer_blue_field_position;
     uint8_t  framebuffer_blue_mask_size;
 };
+
+struct multiboot_mmap_entry {
+    uint32_t size;
+    uint32_t addr_low;
+    uint32_t addr_high;
+    uint32_t len_low;
+    uint32_t len_high;
+    uint32_t type;
+} __attribute__((packed));

@@ -6,3 +6,4 @@ int puts(char* str);
 int conenter();
 int print(char* str);
 int shownum(int pnum);
+int shownum16(int pnum);

@@ -69,3 +69,22 @@ int shownum(int pnum){
     }
     return 0;
 }
+
+int shownum16(int pnum){
+    puts("0x");
+    char *c16 = "0123456789ABCDEF";
+    char numstk[64];
+    int stktop=0;
+    int num = pnum;
+    while(1){
+        numstk[stktop] = c16[num % 16];
+        stktop++;
+        if(num < 16)break;
+        num /= 16;
+    }
+    while(stktop){
+        stktop--;
+        putchar(numstk[stktop]);
+    }
+    return 0;
+}
